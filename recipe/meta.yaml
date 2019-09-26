@@ -12,7 +12,8 @@ source:
 build:
   number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
-  skip: true  # [win  and vc<14]
+  skip: true  # [win and vc<14]
+  skip: true  # [unix and py<=35]
 
 requirements:
   build:
@@ -27,7 +28,7 @@ requirements:
     - bmi-fortran =1.2
     - ecsimplesnow
   run:
-    - python
+    - python >=3
     - {{ pin_compatible('numpy') }}
     - bmi-fortran =1.2
     - ecsimplesnow
