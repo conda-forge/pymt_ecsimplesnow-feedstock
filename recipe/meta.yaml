@@ -23,7 +23,7 @@ requirements:
     - python
     - pip
     - cython
-    - numpy
+    - numpy >=1.14
     - model_metadata
     - bmi-fortran =1.2
     - ecsimplesnow
