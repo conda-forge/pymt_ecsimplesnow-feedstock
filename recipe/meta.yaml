@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/pymt-lab/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 341bde49047b98ba0966f053f4a3e01c670f92e4d56fe294b12d25181b4fc6ef
+  sha256: da1d3b5301823be9ef14def9233527efc63fad45a724f0a62f4a008240fc7e5a
 
 build:
   number: 0
