@@ -1,5 +1,5 @@
 {% set name = "pymt_ecsimplesnow" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,13 @@ package:
 
 source:
   url: https://github.com/pymt-lab/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 8ee53a9981d9c208b8464cedd058ca302d2dd09afe14c9eba7b153bf6f0961c6
+  sha256: 3319a8883306c3739f5efcb8680f8701d49da02bff72f8d8496eebaaddfa2e35
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
-  skip: True  # [win]
+  skip: true  # [win and vc<14]
+  skip: true  # [unix and py<=35]
 
 requirements:
   build:
@@ -22,12 +23,12 @@ requirements:
     - python
     - pip
     - cython
-    - numpy
+    - numpy >=1.14
     - model_metadata
     - bmi-fortran =1.2
     - ecsimplesnow
   run:
-    - python
+    - python >=3
     - {{ pin_compatible('numpy') }}
     - bmi-fortran =1.2
     - ecsimplesnow
