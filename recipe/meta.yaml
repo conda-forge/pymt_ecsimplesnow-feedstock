@@ -28,7 +28,7 @@ requirements:
     - bmi-fortran =1.2
     - ecsimplesnow
   run:
-    - python >=3
+    - python
     - {{ pin_compatible('numpy') }}
     - bmi-fortran =1.2
     - ecsimplesnow
