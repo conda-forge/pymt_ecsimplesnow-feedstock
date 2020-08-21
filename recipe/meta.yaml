@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/pymt-lab/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 34221b727780fb5cd6b4ff3fbcf747c649d5e881803be0f50f2a27b0049b25ab
+  sha256: bb381366544876ed39fe54ab8085b0a5659fbc1be101e60d7d3e8d77279b9e7c
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   skip: true  # [win]
   skip: true  # [unix and py<=35]
