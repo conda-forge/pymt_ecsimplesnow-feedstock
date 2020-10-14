@@ -5,11 +5,11 @@ Home: https://github.com/pymt-lab/pymt_ecsimplesnow
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pymt_ecsimplesnow-feedstock/blob/master/LICENSE.txt)
 
 Summary: Python package that wraps the ECSimpleSnow model.
 
-
+Development: https://github.com/pymt-lab/pymt_ecsimplesnow
 
 Current build status
 ====================
