@@ -1,5 +1,5 @@
 {% set name = "pymt_ecsimplesnow" %}
-{% set version = "0.2.5" %}
+{% set version = "0.2.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/pymt-lab/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: bb381366544876ed39fe54ab8085b0a5659fbc1be101e60d7d3e8d77279b9e7c
+  sha256: f62c8112dbacfc2a65c45c63bb3c3cfdd22dee4f943ace47ab64e88cd54eb502
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   skip: true  # [win]
   skip: true  # [unix and py<=35]
