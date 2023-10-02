@@ -14,13 +14,14 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   skip: true  # [win]
   skip: true  # [unix and py<=35]
+  skip: true  # [py>=312]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
-    - python <3.12
+    - python
     - pip
     - cython
     - numpy >=1.14
@@ -28,7 +29,7 @@ requirements:
     - bmi-fortran =1.2
     - ecsimplesnow
   run:
-    - python <3.12
+    - python
     - {{ pin_compatible('numpy') }}
     - bmi-fortran =1.2
     - ecsimplesnow
