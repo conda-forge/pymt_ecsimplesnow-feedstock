@@ -24,8 +24,9 @@ requirements:
   host:
     - python
     - pip
+    - setuptools <60.0
     - cython
-    - numpy >=1.14
+    - numpy <2
     - model_metadata =0.7.0
     - bmi-fortran =1.2
     - ecsimplesnow
