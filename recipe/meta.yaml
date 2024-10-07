@@ -10,7 +10,7 @@ source:
   sha256: f62c8112dbacfc2a65c45c63bb3c3cfdd22dee4f943ace47ab64e88cd54eb502
 
 build:
-  number: 8
+  number: 9
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   skip: true  # [win]
   skip: true  # [unix and py<=35]
@@ -18,20 +18,25 @@ build:
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython                                 # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
   host:
     - python
     - pip
+    - setuptools <60.0
     - cython
-    - numpy >=1.14
+    - numpy <2
     - model_metadata =0.7.0
-    - bmi-fortran =1.2
+    - bmi-fortran =1.2.1
     - ecsimplesnow
   run:
     - python
-    - bmi-fortran =1.2
+    - bmi-fortran =1.2.1
     - ecsimplesnow
 
 test:
