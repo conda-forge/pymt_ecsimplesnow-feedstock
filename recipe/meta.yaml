@@ -28,11 +28,11 @@ requirements:
     - cython
     - numpy <2
     - model_metadata =0.7.0
-    - bmi-fortran =1.2
+    - bmi-fortran =1.2.1
     - ecsimplesnow
   run:
     - python
-    - bmi-fortran =1.2
+    - bmi-fortran =1.2.1
     - ecsimplesnow
 
 test:
