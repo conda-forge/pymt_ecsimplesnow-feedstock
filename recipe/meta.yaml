@@ -23,6 +23,7 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
+    - pkg-config                             # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
@@ -34,6 +35,7 @@ requirements:
     - numpy
     - meson-python
     - ninja
+    - pkg-config
     - model_metadata
     - bmi-fortran =1.2.1
     - ecsimplesnow
