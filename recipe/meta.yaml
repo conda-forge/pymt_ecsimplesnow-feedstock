@@ -13,8 +13,6 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   skip: true  # [win and vc<14]
-  skip: true  # [unix and py<=35]
-  skip: true  # [py>=312]
 
 requirements:
   build:
@@ -22,16 +20,20 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
+    - meson-python                           # [build_platform != target_platform]
+    - ninja                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
   host:
     - python
     - pip
-    - setuptools <60.0
+    - setuptools
     - cython
-    - numpy <2
-    - model_metadata =0.7.0
+    - numpy
+    - meson-python
+    - ninja
+    - model_metadata
     - bmi-fortran =1.2.1
     - ecsimplesnow
   run:
