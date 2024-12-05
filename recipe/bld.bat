@@ -10,8 +10,7 @@ mkdir %BUILD_DIR%
     -Cbuilddir=%BUILD_DIR% ^
     -Cinstall-args=--tags=runtime,python-runtime,devel ^
     -Csetup-args=-Dcpp_std=c++11 ^
-    -Csetup-args=-Dfortran_std=none ^
-    -Csetup-args=-Duse-g77-abi=false
+    -Csetup-args=-Dfortran_std=none
 if %ERRORLEVEL% neq 0 (type %BUILD_DIR%\meson-logs\meson-log.txt && exit 1)
 
 :: `pip install dist\*.whl` does not work on windows,
