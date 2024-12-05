@@ -1,5 +1,5 @@
 {% set name = "pymt_ecsimplesnow" %}
-{% set version = "0.2.6" %}
+{% set version = "0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,12 @@ package:
 
 source:
   url: https://github.com/pymt-lab/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: f62c8112dbacfc2a65c45c63bb3c3cfdd22dee4f943ace47ab64e88cd54eb502
+  sha256: bd94d86c642078ef9900a25511cff1cfcc14449c2fbb037a67b5079b5247d6f4
 
 build:
-  number: 10
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
-  skip: true  # [win and vc<14]
-  skip: true  # [unix and py<=35]
-  skip: true  # [py>=312]
+  number: 0
+  skip: true  # [win]
+  skip: true  # [py<310]
 
 requirements:
   build:
@@ -22,16 +20,25 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
+    - meson-python                           # [build_platform != target_platform]
+    - ninja                                  # [build_platform != target_platform]
+    - pkg-config                             # [build_platform != target_platform]
+    - bmi-fortran =1.2.1                     # [build_platform != target_platform]
+    - ecsimplesnow                           # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
   host:
     - python
     - pip
-    - setuptools <60.0
+    - setuptools
     - cython
-    - numpy <2
-    - model_metadata =0.7.0
+    - numpy
+    - meson-python
+    - ninja
+    - pkg-config
+    - python-build
+    - model_metadata
     - bmi-fortran =1.2.1
     - ecsimplesnow
   run:
