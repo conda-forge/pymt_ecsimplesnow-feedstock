@@ -10,24 +10,24 @@ source:
   sha256: bd94d86c642078ef9900a25511cff1cfcc14449c2fbb037a67b5079b5247d6f4
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
+  skip: true  # [win and vc<14]
   skip: true  # [py<310]
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
+    - python
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - meson-python                           # [build_platform != target_platform]
     - ninja                                  # [build_platform != target_platform]
-    - pkg-config                             # [build_platform != target_platform]
     - bmi-fortran =1.2.1                     # [build_platform != target_platform]
     - ecsimplesnow                           # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
+    - pkg-config
   host:
     - python
     - pip
