@@ -2,6 +2,8 @@
 @echo on
 setlocal enabledelayedexpansion
 
+set "AR=lib.exe"
+
 set "BUILD_DIR=build"
 mkdir %BUILD_DIR%
 
